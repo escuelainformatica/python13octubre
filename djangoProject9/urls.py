@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/',app_rest.views.mivista),
     path('cliente/',app_rest.views.clientevista),
-    path('dolar/',app_rest.views.clientedolar)
+    path('dolar/',app_rest.views.clientedolar),
+    path('clima/',app_rest.views.clienteweather),
 
 ]

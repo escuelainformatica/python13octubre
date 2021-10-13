@@ -12,13 +12,20 @@ def mivista(request:WSGIRequest ):
 
     return JsonResponse({"resultado":sumar})
 
+def clienteweather(request):
+    datos={'q':'Santiago','appid':'xxxxx'}  #todo: falta el codigo
+    r=requests.get('https://api.openweathermap.org/data/2.5/weather',params=datos)
+    dic = json.loads(r.content)
+    return JsonResponse(dic)
+
+
 def clientevista(request):
     datos = {
         "num1": 1,
         "num2": 2
     }
 
-    r = requests.post('http://127.0.0.1:8000/test/', json=datos)
+    r = requests.post('http://127.0.0.1:8000/test/', json=datos,headers={})
     dic=json.loads(r.content)
     return render(request,"resultado.html",dic)
 
